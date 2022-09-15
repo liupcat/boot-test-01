@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoliu.mapper.EmployeeMapper">
+
+
+    <insert id="save" parameterType="Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into Employee(lastName,email,gender,department,birth) values
+        (#{lastName},#{email},#{gender},#{department},#{birth});
+    </insert>
+
+    <select id="getAll" resultType="Employee" >
+        select * from  Employee;
+    </select>
+
+    <select id="getEmployeeBYId" resultType="Employee" >
+        select * from  Employee where id=#{id};
+    </select>
+
+    <delete id="delete" parameterType="Employee">
+        delete from Employee where id=#{id};
+    </delete>
+</mapper>
